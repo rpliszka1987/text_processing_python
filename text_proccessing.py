@@ -8,7 +8,7 @@ f.close()
 with open("textfile.txt") as secondFile:
     content = secondFile.read()
 
-print(content)
+# print(content)
 
 # This is creating and writting to the file
 with open("testing.txt", "w") as myfile:
@@ -19,4 +19,14 @@ with open("testing.txt", "a+") as myfile:
     myfile.seek(0)
     fileContent = myfile.read()
 
-print(fileContent)
+# print(fileContent)
+
+with open("twoFiles.txt", "a+") as fullTextFile:
+    firstFile = open("testing.txt")
+    secondFile = open("textfile.txt")
+    fullTextFile.write(firstFile.read())
+    fullTextFile.write(secondFile.read())
+    fullTextFile.seek(0)
+    content = fullTextFile.read()
+
+print(content)
